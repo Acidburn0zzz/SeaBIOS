@@ -517,13 +517,10 @@ interactive_bootmenu(void)
     // Get key press
     for (;;) {
         scan_code = get_keystroke(1000);
-        if (scan_code >= 1 && scan_code <= maxmenu+1)
+        if (scan_code > 1 && scan_code <= maxmenu+1)
             break;
     }
     printf("\n");
-    if (scan_code == 0x01)
-        // ESC
-        return;
 
     // Find entry and make top priority.
     int choice = scan_code - 1;
